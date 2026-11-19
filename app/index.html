@@ -3,6 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" href="data:,">
 <title>Neon Coast — GTA 6-Style Cover Art Maker</title>
 <link rel="stylesheet" href="./style.css">
 </head>
@@ -15,7 +16,12 @@
       <p>Turn any photo into GTA 6-style cover art — offline, in your browser.</p>
     </div>
   </div>
-  <p class="offline-badge">100% offline · your photos never leave this machine</p>
+  <div class="top-actions">
+    <button id="undo" type="button" disabled>↩ Undo</button>
+    <button id="redo" type="button" disabled>↪ Redo</button>
+    <button id="surprise" type="button" class="surprise">🎲 Surprise me</button>
+    <p class="offline-badge">100% offline · your photos never leave this machine</p>
+  </div>
 </header>
 <main class="app">
   <section class="controls" aria-label="Cover controls">
@@ -56,6 +62,8 @@
       <label>Subtitle (neon script)
         <input id="subtitle" type="text" maxlength="60" value="one last job under the neon sun">
       </label>
+      <p class="hint">Title style</p>
+      <div id="titleStyles" class="picker" role="group" aria-label="Title style"></div>
     </div>
 
     <div class="group">
@@ -74,10 +82,24 @@
       <label>Move up / down <span id="panYVal">0</span>
         <input id="panY" type="range" min="-0.5" max="0.5" step="0.01" value="0">
       </label>
+      <label>Rotate <span id="rotVal">0°</span>
+        <input id="rot" type="range" min="-15" max="15" step="1" value="0">
+      </label>
     </div>
 
     <div class="group">
-      <h2>6 · Export PNG</h2>
+      <h2>6 · Finish &amp; effects</h2>
+      <p class="hint">Frame</p>
+      <div id="frames" class="picker" role="group" aria-label="Frame style"></div>
+      <label>Film grain <span id="grainVal">50%</span>
+        <input id="grain" type="range" min="0" max="1" step="0.05" value="0.5">
+      </label>
+      <label class="check"><input id="halftone" type="checkbox"> Halftone dots in the title band</label>
+      <label class="check"><input id="flare" type="checkbox"> Sun flare, top right</label>
+    </div>
+
+    <div class="group">
+      <h2>7 · Export PNG</h2>
       <div id="sizes" class="picker" role="group" aria-label="Export size"></div>
       <div class="row">
         <button id="exportOne" type="button" class="primary">Export this size</button>

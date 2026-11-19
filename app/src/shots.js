@@ -1,7 +1,8 @@
-// Fixed scenes for screenshots: ?shot=editor shows the editor with sample photos
-// loaded; ?shot=cover shows one exported cover full-frame at its export size.
-// Query keys: photo (sample name), second (second sample), caption, subtitle,
-// layout (hero|grid|strip|full), grade, size (square|portrait|wide).
+// Fixed scenes for screenshots: ?shot=editor shows the editor with sample
+// photos loaded; ?shot=cover shows one exported cover full-frame at its
+// export size. Query keys: photo (sample name), second (second sample),
+// caption, subtitle, layout, grade, size (square|portrait|wide), plus the
+// v2 extras titleStyle, frame, grain, halftone and flare.
 // window.__shotReady is set once the cover has been painted.
 export async function runShot(shot, query, load) {
   if (shot === 'cover') document.body.classList.add('shot-cover');
@@ -19,6 +20,11 @@ export async function runShot(shot, query, load) {
       size,
       subtitle: query.get('subtitle') ?? 'one last job under the neon sun',
       second: `samples/${second}.jpg`,
+      titleStyle: query.get('titleStyle') ?? 'sunset',
+      frame: query.get('frame') ?? 'white',
+      grain: Number(query.get('grain') ?? 0.5),
+      halftone: query.get('halftone') === '1',
+      flare: query.get('flare') === '1',
     },
   );
   requestAnimationFrame(() => requestAnimationFrame(() => {

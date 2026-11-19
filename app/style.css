@@ -1,3 +1,5 @@
+/* Neon Coast v2 — editor chrome. Deep violet night theme with the sunset
+   pink / orange / cyan accents the covers themselves are graded in. */
 :root {
   --ink: #f5eefc;
   --muted: #b9a8cc;
@@ -28,10 +30,17 @@ body {
 }
 .brand h1 { margin: 0; font-size: 26px; letter-spacing: 2px; text-transform: uppercase; }
 .brand p { margin: 2px 0 0; color: var(--muted); font-size: 13px; }
+.top-actions { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
 .offline-badge {
   margin: 0; padding: 8px 14px; border: 1px solid var(--cyan); border-radius: 999px;
   color: var(--cyan); font-size: 12px; font-weight: 700; letter-spacing: 0.4px;
 }
+button.surprise {
+  background: linear-gradient(135deg, var(--gold), var(--orange));
+  border: 0; color: #2a1052;
+}
+button:disabled { opacity: 0.45; cursor: default; }
+button:disabled:hover { border-color: var(--line); }
 .app { display: flex; gap: 28px; padding: 24px 28px 40px; align-items: flex-start; }
 .controls { width: 340px; flex: none; display: flex; flex-direction: column; gap: 18px; }
 .group {
@@ -42,6 +51,8 @@ body {
 label { display: flex; flex-direction: column; gap: 6px; font-weight: 600; font-size: 13px; margin-top: 10px; }
 label:first-child { margin-top: 0; }
 label span { font-weight: 400; color: var(--muted); }
+label.check { flex-direction: row; align-items: center; gap: 8px; font-weight: 400; cursor: pointer; }
+label.check input { accent-color: var(--pink); width: 16px; height: 16px; }
 input[type=text], select {
   font: inherit; padding: 9px 10px; border: 1px solid var(--line); border-radius: 8px;
   background: var(--panel-2); color: var(--ink);
