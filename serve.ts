@@ -1,6 +1,9 @@
 // A tiny static server for the Neon Coast app/ folder (Node 22, stdlib only).
 // Run `node serve.ts` and open http://localhost:8080 — it serves app/ and
-// nothing else, refusing any path that climbs out of the folder.
+// nothing else, refusing any path that climbs out of the folder. It sends the
+// MIME types an offline web app needs (including fonts, in case the app ever
+// ships one) and otherwise does nothing clever: a development convenience,
+// not a web server for the internet. Pass --port <n> to pick another port.
 import { createReadStream, statSync } from 'node:fs';
 import { createServer } from 'node:http';
 import { extname, join, normalize, resolve, sep } from 'node:path';
@@ -8,9 +11,11 @@ import { fileURLToPath } from 'node:url';
 
 const root = resolve(fileURLToPath(new URL('./app', import.meta.url)));
 const args = process.argv.slice(2);
-const portArg = args.indexOf('--port');
-const wanted = portArg === -1 ? 8080 : Number(args[portArg + 1]);
-const port = Number.isInteger(wanted) && wanted > 0 && wanted < 65536 ? wanted : 8080;
+const portIndex = args.indexOf('--port');
+const requested = portIndex === -1 ? 8080 : Number(args[portIndex + 1]);
+const port = Number.isInteger(requested) && requested > 0 && requested < 65536
+  ? requested
+  : 8080;
 
 const MIME = {
   '.html': 'text/html; charset=utf-8',
@@ -26,6 +31,14 @@ const MIME = {
   '.svg': 'image/svg+xml',
   '.ico': 'image/x-icon',
   '.txt': 'text/plain; charset=utf-8',
+  '.woff2': 'font/woff2',
+  '.woff': 'font/woff',
+  '.ttf': 'font/ttf',
+  '.otf': 'font/otf',
+  '.wasm': 'application/wasm',
+  '.wav': 'audio/wav',
+  '.mp3': 'audio/mpeg',
+  '.ogg': 'audio/ogg',
 };
 
 createServer((request, response) => {

@@ -1,1 +1,26 @@
-[{"h":720,"name":"1-cover.jpg","query":"?shot=cover&layout=hero&grade=sunset&size=wide&photo=boulevard&second=pier&caption=VICE%20HEIST&subtitle=one%20last%20job%20under%20the%20neon%20sun","w":1280},{"h":800,"name":"2-editor.jpg","query":"?shot=editor&layout=hero&grade=sunset&size=square&photo=boulevard&second=pier&caption=VICE%20HEIST&subtitle=one%20last%20job%20under%20the%20neon%20sun","w":1280},{"h":1280,"name":"3-cover-portrait.jpg","query":"?shot=cover&layout=grid&grade=neon&size=portrait&photo=pier&second=boulevard&caption=NEON%20SHORE&subtitle=midnight%20on%20ocean%20drive","w":1024},{"h":1080,"name":"4-cover-strip.jpg","query":"?shot=cover&layout=strip&grade=gold&size=square&photo=boulevard&second=pier&caption=PALM%20GOLD&subtitle=golden%20hour%2C%20every%20hour","w":1080}]
+[
+  {
+    "name": "1-cover.jpg",
+    "query": "?shot=cover&layout=hero&grade=sunset&size=wide&photo=boulevard&second=pier&caption=VICE%20HEIST&subtitle=one%20last%20job%20under%20the%20neon%20sun",
+    "w": 1280,
+    "h": 720
+  },
+  {
+    "name": "2-editor.jpg",
+    "query": "?shot=editor&layout=hero&grade=sunset&size=square&photo=boulevard&second=pier&caption=VICE%20HEIST&subtitle=one%20last%20job%20under%20the%20neon%20sun",
+    "w": 1280,
+    "h": 800
+  },
+  {
+    "name": "3-cover-portrait.jpg",
+    "query": "?shot=cover&layout=grid&grade=neon&size=portrait&photo=pier&second=boulevard&caption=NEON%20SHORE&subtitle=midnight%20on%20ocean%20drive",
+    "w": 1024,
+    "h": 1280
+  },
+  {
+    "name": "4-cover-strip.jpg",
+    "query": "?shot=cover&layout=strip&grade=gold&size=square&photo=boulevard&second=pier&caption=PALM%20GOLD&subtitle=golden%20hour%2C%20every%20hour",
+    "w": 1080,
+    "h": 1080
+  }
+]

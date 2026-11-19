@@ -1,1 +1,4 @@
+# Build output from `node main.ts` (regenerated, never committed).
 out/
+# Editor and OS clutter.
+.DS_Store
